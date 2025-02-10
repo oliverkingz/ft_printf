@@ -62,8 +62,19 @@ The `ft_printf` project is a recreation of the standard C library function `prin
 
 | **Input Command**                                      | **Description**                                                                 | **Expected Output**                                                                 |
 |--------------------------------------------------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| `ft_printf("Invalid format: %z", 42)`                  | Invalid format specifier.                                                      | No output or undefined behavior (depends on implementation).                       |
-| `ft_printf(NULL)`                                      | NULL format string.                                                            | No output or undefined behavior (depends on implementation).                       |
+| `ft_printf("%z", 42)`                                 | Invalid format specifier.                                                       | No output or undefined behavior (depends on implementation).                       |
+| `ft_printf(NULL)`                                     | Passing a NULL format string.                                                   | Should handle without crashing.                                  |
+| `ft_printf("%")`                                      | Incomplete format specifier.                                                    | Should return an error or handle gracefully.                      |
+| `ft_printf("%2147483648d", 42)`                       | Width or precision overflow (integer limit exceeded).                           | Should handle overflow or return an error.                        |
+| `ft_printf("%s", NULL)`                               | NULL string passed as argument.                                                 | Should print `(null)` or handle it properly.                      |
+| `ft_printf("%p", NULL)`                               | NULL pointer passed as argument.                                                | Should print `(nill)` or handle it properly.                      |
+| `ft_printf("%c", 300)`                                | Out-of-range character value for `%c`.                                          | Should handle non-ASCII or return error.                          |
+| `ft_printf("%d", "string")`                           | Incorrect argument type for `%d`.                                               | Undefined behavior or possible crash.                             |
+| `ft_printf("%10$d", 42)`                              | Incorrect position specifier.                                                   | Undefined behavior or controlled output (look at bonus)          |
+| `ft_printf("%-010d", 42)`                             | Conflicting flags (`0` and `-` used together).                                  | Should prioritize one or handle conflicts (look at bonus         |
+| `ft_printf("%.*d", -5, 42)`                           | Precision as a negative value.                                                  | Undefined behavior or handle negative precision (look at bonus)  |
+
+
 
 ---
 
