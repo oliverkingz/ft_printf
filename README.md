@@ -16,7 +16,7 @@ The `ft_printf` project is a recreation of the standard C library function `prin
 
 ---
 
-## Features  
+## Mandatory Features  
 - **%c**: Prints a single character.  
 - **%s**: Prints a string.  
 - **%p**: Prints a pointer address in hexadecimal format.  
@@ -26,6 +26,13 @@ The `ft_printf` project is a recreation of the standard C library function `prin
 - **%x**: Prints a hexadecimal number (base 16) in lowercase.  
 - **%X**: Prints a hexadecimal number (base 16) in uppercase.  
 - **%%**: Prints a percent sign.  
+
+## Bonus Features (not implemented)  
+The following bonus features were not implemented in this project but are part of the extended requirements for `ft_printf`:  
+
+- **Flag Management**: Handling flags like `-`, `0`, `.`, and minimum field width for all conversions.  
+- **Additional Flags**: Support for `#`, `+`, and space flags to modify the output format (e.g., `#x` for hexadecimal with `0x` prefix).  
+- **Precision and Padding**: Managing precision for numbers and strings, as well as padding with spaces or zeros.  
 
 ---
 
@@ -65,7 +72,7 @@ The `ft_printf` project is a recreation of the standard C library function `prin
 | `ft_printf("%z", 42)`                                 | Invalid format specifier.                                                       | No output or undefined behavior (depends on implementation).                       |
 | `ft_printf(NULL)`                                     | Passing a NULL format string.                                                   | Should handle without crashing.                                  |
 | `ft_printf("%")`                                      | Incomplete format specifier.                                                    | Should return an error or handle gracefully.                      |
-| `ft_printf("%2147483648d", 42)`                       | Width or precision overflow (integer limit exceeded).                           | Should handle overflow or return an error.                        |
+| `ft_printf("%d", 2147483648)`                       | Width or precision overflow (integer limit exceeded).                           | Should handle overflow or return an error.                        |
 | `ft_printf("%s", NULL)`                               | NULL string passed as argument.                                                 | Should print `(null)` or handle it properly.                      |
 | `ft_printf("%p", NULL)`                               | NULL pointer passed as argument.                                                | Should print `(nill)` or handle it properly.                      |
 | `ft_printf("%c", 300)`                                | Out-of-range character value for `%c`.                                          | Should handle non-ASCII or return error.                          |
@@ -73,8 +80,6 @@ The `ft_printf` project is a recreation of the standard C library function `prin
 | `ft_printf("%10$d", 42)`                              | Incorrect position specifier.                                                   | Undefined behavior or controlled output (look at bonus)          |
 | `ft_printf("%-010d", 42)`                             | Conflicting flags (`0` and `-` used together).                                  | Should prioritize one or handle conflicts (look at bonus         |
 | `ft_printf("%.*d", -5, 42)`                           | Precision as a negative value.                                                  | Undefined behavior or handle negative precision (look at bonus)  |
-
-
 
 ---
 
@@ -92,6 +97,3 @@ The `ft_printf` project is a recreation of the standard C library function `prin
 - **42 Login**: ozamora-
 
 ---
-
-## Acknowledgments  
-This project is part of the **42 Cursus**, a rigorous programming curriculum that emphasizes hands-on learning and problem-solving. Special thanks to the 42 team for providing this challenging and rewarding project!  
