@@ -50,10 +50,11 @@ The following bonus features were not implemented in this project but are part o
    ```bash  
    make  
    ```  
-3. Use the `ft_printf` function in your code by including the header file:  
+3. Use the `ft_printf` function in your code by including the header file at the top of the C File:  
    ```c  
    #include "ft_printf.h"  
    ```  
+4. Make a program (with a main) to test the C Function ft_printf
 
 ### Example Usage  
 
@@ -95,5 +96,10 @@ The following bonus features were not implemented in this project but are part o
 - **Name**: Oliver King Zamora
 - **GitHub**: [oliverkingz](https://github.com/oliverkingz)
 - **42 Login**: ozamora-
+
+---
+
+## Acknowledgments  
+This project is part of the **42 Cursus**, a rigorous programming curriculum that emphasizes hands-on learning and problem-solving. Special thanks to the 42 team for providing this challenging and rewarding project!  
 
 ---
